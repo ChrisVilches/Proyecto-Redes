@@ -3,8 +3,8 @@
 ?>
 <head>
 	<title>Proyecto redes</title>
-	<script src="jquery.js"></script>
-	<script src="js.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/js.js"></script>
 	<style type="text/css">
 
 		div.modulo { border: 1px solid #aaaaaa; padding:10px; }
