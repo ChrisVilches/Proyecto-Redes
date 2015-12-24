@@ -19,12 +19,20 @@
 
 ### FTP
 
-Hay que dejar abierto un servidor FTP, y saber cual es el usuario, password, y servidor (ademas del puerto). Estos datos se colocan en el config de PHP.
+Hay que dejar abierto un servidor FTP, y saber cual es el usuario, password, y servidor (ademas del puerto). Estos datos se colocan en el config de PHP. El nombre del servidor puede ser 127.0.0.1 (=localhost) o una IP externa, tambien puede ser con un nombre de dominio externo.
 
 ### NTP
 
 Similar a FTP.
 
-### SMTP
+### SMTP (en construccion)
 
-Similar a los anteriores, pero se debe crear usuarios para poder recibir y enviar correos. (en construccion)
+Similar a los anteriores, pero se debe crear usuarios para poder recibir y enviar correos.
+
+Ademas, es posible que haya que seguir este tutorial http://tecadmin.net/setup-catch-all-email-account-in-postfix/, el cual explica sobre como configurar Postfix para que acepte cualquier correo, incluso si las direcciones estan mal escritas, o no existen.
+
+Para mandar correos desde la misma consola, a postfix, se puede ejecutar el comando
+```echo "body of your email" | mail -s "This is a Subject" -a "From: usuario1@felo-All-Series" usuario2@felo-All-Series
+```
+
+Para leer los mails que llegaron al servidor, ejecutar el comando ```mailq``` y luego copiar una de las IDs, y ejecutar el comando ```sudo postcat -q 4BC3835EA00``` (en donde el numero grande es la ID copiada).
