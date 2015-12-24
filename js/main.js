@@ -15,7 +15,7 @@ var SMTP;
             url: frm.attr('action'),
             data: frm.serialize(),
             success: function (response) {
-                if (response == 1) {
+                if (response == "1") {
                     $("#smtp_msg").html("Se ha enviado exitosamente");
                 }
                 else {
