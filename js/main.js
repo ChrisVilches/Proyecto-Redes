@@ -7,6 +7,7 @@ var NTP;
     var timestmp;
     var incremento = 0;
     var thread;
+    var url = "ntp_ajax.php";
     function formatTime(unixTimestamp) {
         var dt = new Date(unixTimestamp * 1000);
         var hours = dt.getHours();
@@ -39,7 +40,6 @@ var NTP;
     }
     NTP.empezarHilo = empezarHilo;
     function peticionNTP() {
-        var url = "ntp_ajax.php";
         $.ajax({
             url: url,
             type: "POST",
@@ -57,7 +57,6 @@ var NTP;
             }
         });
     }
-    NTP.peticionNTP = peticionNTP;
 })(NTP || (NTP = {}));
 var FTP;
 (function (FTP) {

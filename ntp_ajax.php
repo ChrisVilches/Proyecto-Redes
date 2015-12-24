@@ -13,12 +13,13 @@ function query_time_server ($timeserver, $socket, $timeout){
         # parameters: server, socket, error code, error text, timeout
     if($fp){
         fputs($fp, "\n");
-        $timevalue = fread($fp, 49);
-        fclose($fp); # close the connection
+        $timevalue = fread($fp, 49);        
     }
     else{
         $timevalue = " ";
     }
+
+    fclose($fp); # close the connection
 
     $ret = array();
     $ret[] = $timevalue;
