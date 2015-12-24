@@ -1,6 +1,5 @@
 <?php
 
-
 	class ftp_config{
 
 		public static $server = "127.0.0.1";
@@ -10,5 +9,13 @@
 
 	}
 
+	class ntp_config{
+
+		public static $server = "ntp.pads.ufrj.br";
+		public static $socket = 37;
+		public static $timeout = 5;
+		public static $timezone = "Chile/Continental";	// Esto es valido en PHP
+
+	}
 
 ?>
