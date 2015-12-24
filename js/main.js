@@ -1,5 +1,6 @@
 /// <reference path="jquery.d.ts"/>
 $(document).ready(function () {
+    FTP.actualizarListaArchivos();
     NTP.empezarHilo();
     // Crear el evento cuando se envia el correo SMTP
     var frm = $('#smtp_form');
@@ -15,7 +16,7 @@ var SMTP;
             url: frm.attr('action'),
             data: frm.serialize(),
             success: function (response) {
-                if (response == "1") {
+                if (response == 1) {
                     $("#smtp_msg").html("Se ha enviado exitosamente");
                 }
                 else {
@@ -35,7 +36,7 @@ var NTP;
     var timestmp;
     var incremento = 0;
     var thread;
-    var url = "ntp_ajax.php";
+    var url = "ajax/ntp_ajax.php";
     function formatTime(unixTimestamp) {
         var dt = new Date(unixTimestamp * 1000);
         var hours = dt.getHours();
@@ -88,12 +89,32 @@ var NTP;
 })(NTP || (NTP = {}));
 var FTP;
 (function (FTP) {
+    function actualizarListaArchivos() {
+        var url = "ajax/ftp_obtenerarchivos_ajax.php";
+        $.ajax({
+            url: url,
+            type: "POST",
+            contentType: false,
+            processData: false,
+            cache: false,
+            // Cuando el archivo se sube exitosamente
+            success: function (response) {
+                $('#archivos_ftp').html(response);
+            },
+            // Cuando hay un error
+            error: function (response) {
+                $('#archivos_ftp').html("");
+                $("#ftp_msg").html("Error al cargar los archivos");
+            }
+        });
+    }
+    FTP.actualizarListaArchivos = actualizarListaArchivos;
     // Funcion para subir usando Ajax, a una pagina PHP, para asi subirlo a FTP.
     function uploadAjax() {
         var inputFileImage = $("#ftp_file").get(0);
         var file = inputFileImage.files[0];
         var data = new FormData();
-        var url = "ftp_ajax.php";
+        var url = "ajax/ftp_ajax.php";
         data.append("filename", file);
         $.ajax({
             url: url,
@@ -104,7 +125,7 @@ var FTP;
             cache: false,
             // Cuando el archivo se sube exitosamente
             success: function (response) {
-                $('#iframe_ftp').attr("src", $('#iframe_ftp').attr("src"));
+                actualizarListaArchivos();
                 $("#ftp_form")[0].reset();
                 $("#ftp_msg").html("<b>" + file.name + "</b> se ha subido correctamente.");
             },

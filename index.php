@@ -9,7 +9,6 @@
 		<style type="text/css">
 
 			div.modulo { border: 1px solid #aaaaaa; padding:10px; margin-top: 10px; }
-			iframe.ftp { width: 800px; }
 			p.ntp_hora { font-size: 20px; }
 			p.ntp_fecha { font-size: 12px; }
 			textarea.mailcontent{ width:100%; height: 100px; }
@@ -31,7 +30,7 @@
 			<p id="ftp_msg"></p>
 
 			<!-- Mostrar los archivos -->
-			<iframe class="ftp" id="iframe_ftp" src="ftp://<?php echo ftp_config::$server; ?>"></iframe>
+			<div id="archivos_ftp"></div>
 
 		</div>
 
@@ -43,7 +42,7 @@
 
 		<div class="modulo">
 			<h3>Modulo SMTP</h3>
-			<form id="smtp_form" method="post" action="smtp_ajax.php">
+			<form id="smtp_form" method="post" action="ajax/smtp_ajax.php">
 				<table>
 					<tr><td>Desde:</td><td><input type="text" name="from"/></td></tr>
 					<tr><td>Destino:</td><td><input type="text" name="destino"/></td></tr>

@@ -1,6 +1,6 @@
 <?php
 
-	require_once("config.php");
+	require_once("../config.php");
 
 	// Si no se pasaron archivos, dejar de ejecutar
 	if(isset($_FILES) && sizeof($_FILES) == 0){		

@@ -1,7 +1,7 @@
 <?php
 
 	require_once("phpmailer/PHPMailerAutoload.php");
-	require_once("config.php");
+	require_once("../config.php");
 
 	$mail = new PHPMailer();
 
