@@ -18,4 +18,12 @@
 
 	}
 
+	class smtp_config{
+
+		public static $server = "127.0.0.1";
+		public static $port = 25;	// Para no ocupar puerto, dejarlo como string vacia ""
+		public static $word_wrap = 50;
+
+	}
+
 ?>

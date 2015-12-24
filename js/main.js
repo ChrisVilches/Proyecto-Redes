@@ -1,7 +1,35 @@
 /// <reference path="jquery.d.ts"/>
 $(document).ready(function () {
     NTP.empezarHilo();
+    // Crear el evento cuando se envia el correo SMTP
+    var frm = $('#smtp_form');
+    frm.submit(function (ev) {
+        SMTP.enviarMail(ev, frm);
+    });
 });
+var SMTP;
+(function (SMTP) {
+    function enviarMail(ev, frm) {
+        $.ajax({
+            type: frm.attr('method'),
+            url: frm.attr('action'),
+            data: frm.serialize(),
+            success: function (response) {
+                if (response == 1) {
+                    $("#smtp_msg").html("Se ha enviado exitosamente");
+                }
+                else {
+                    $("#smtp_msg").html("No se pudo enviar el correo.<br>" + response);
+                }
+            },
+            error: function (response) {
+                $("#smtp_msg").html("Error AJAX");
+            }
+        });
+        ev.preventDefault();
+    }
+    SMTP.enviarMail = enviarMail;
+})(SMTP || (SMTP = {}));
 var NTP;
 (function (NTP) {
     var timestmp;

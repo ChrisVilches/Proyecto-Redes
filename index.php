@@ -12,6 +12,8 @@
 			iframe.ftp { width: 800px; }
 			p.ntp_hora { font-size: 20px; }
 			p.ntp_fecha { font-size: 12px; }
+			textarea.mailcontent{ width:100%; height: 100px; }
+			tr{vertical-align: top;}
 
 		</style>
 	</head>
@@ -37,6 +39,22 @@
 			<h3>Modulo NTP</h3>
 			<div id="ntp_result"></div>
 			<span id="ntp_msg">Cargando...</span>
+		</div>
+
+		<div class="modulo">
+			<h3>Modulo SMTP</h3>
+			<form id="smtp_form" method="post" action="smtp_ajax.php">
+				<table>
+					<tr><td>Desde:</td><td><input type="text" name="from"/></td></tr>
+					<tr><td>Destino:</td><td><input type="text" name="destino"/></td></tr>
+					<tr><td>Asunto:</td><td><input type="text" name="subject"/></td></tr>
+					<tr><td>Contenido:</td><td><textarea class="mailcontent" name="content"></textarea></td></tr>
+					
+					<tr><td><input type="submit" value="Enviar"></td><td></td></tr>
+				</table>
+			</form>
+			<span id="smtp_msg"></span>
+
 		</div>
 	</body>
 </html>
