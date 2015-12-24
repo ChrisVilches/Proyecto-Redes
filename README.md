@@ -32,7 +32,9 @@ Similar a los anteriores, pero se debe crear usuarios para poder recibir y envia
 Ademas, es posible que haya que seguir este tutorial http://tecadmin.net/setup-catch-all-email-account-in-postfix/, el cual explica sobre como configurar Postfix para que acepte cualquier correo, incluso si las direcciones estan mal escritas, o no existen.
 
 Para mandar correos desde la misma consola, a postfix, se puede ejecutar el comando
-```echo "body of your email" | mail -s "This is a Subject" -a "From: usuario1@felo-All-Series" usuario2@felo-All-Series
+
+```
+echo "body of your email" | mail -s "This is a Subject" -a "From: usuario1@felo-All-Series" usuario2@felo-All-Series
 ```
 
 Para leer los mails que llegaron al servidor, ejecutar el comando ```mailq``` y luego copiar una de las IDs, y ejecutar el comando ```sudo postcat -q 4BC3835EA00``` (en donde el numero grande es la ID copiada).
