@@ -3,7 +3,8 @@
 	require_once("../config.php");
 
 	// Si no se pasaron archivos, dejar de ejecutar
-	if(isset($_FILES) && sizeof($_FILES) == 0){		
+	if(isset($_FILES) && sizeof($_FILES) == 0){
+		echo "0";		
 		exit;
 	}
 
@@ -13,6 +14,7 @@
 
 	// Validar conexion o login
 	if (!$ftp_connection || !$ftp_login) { 
+		echo "0";
 	    exit; 
 	}
 
@@ -22,5 +24,6 @@
 	$upload = ftp_put($ftp_connection, $filename, $source_file, FTP_BINARY);
 
 	ftp_close($ftp_connection); 
+	echo "1";
 
 ?>

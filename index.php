@@ -13,6 +13,7 @@
 			p.ntp_fecha { font-size: 12px; }
 			textarea.mailcontent{ width:100%; height: 100px; }
 			tr{vertical-align: top;}
+			span {min-height: 10px;}
 
 		</style>
 	</head>

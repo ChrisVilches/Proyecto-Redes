@@ -76,9 +76,15 @@ var NTP;
             processData: false,
             cache: false,
             success: function (response) {
-                incremento = 0;
-                timestmp = Number(response);
-                $("#ntp_msg").html("Sincronizado");
+                if (!isNaN(response)) {
+                    incremento = 0;
+                    timestmp = Number(response);
+                    console.log("Sincronizado");
+                }
+                else {
+                    $("#ntp_result").html("Error en el servidor NTP");
+                    clearInterval(thread);
+                }
             },
             error: function (response) {
                 $("#ntp_result").html("Error AJAX");
@@ -125,13 +131,18 @@ var FTP;
             cache: false,
             // Cuando el archivo se sube exitosamente
             success: function (response) {
-                actualizarListaArchivos();
-                $("#ftp_form")[0].reset();
-                $("#ftp_msg").html("<b>" + file.name + "</b> se ha subido correctamente.");
+                if (response == "1") {
+                    actualizarListaArchivos();
+                    $("#ftp_form")[0].reset();
+                    $("#ftp_msg").html("<b>" + file.name + "</b> se ha subido correctamente.");
+                }
+                else {
+                    $("#ftp_msg").html("Error al subir el archivo");
+                }
             },
             // Cuando hay un error
             error: function (response) {
-                $("#ftp_msg").html("Hubo un error al subir archivo <b>" + file.name + "</b>.");
+                $("#ftp_msg").html("Error AJAX");
             }
         });
     }
