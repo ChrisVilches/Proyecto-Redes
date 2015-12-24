@@ -14,3 +14,17 @@
 2. Puede configurarse con cualquier servidor. La aplicacion no depende de un servidor en especifico, puede usar servidores externos, etc (no solo localhost).
 3. Usa AJAX
 4. El tiempo se obtiene una vez cada cierto tiempo, y mientras tanto, se continua incrementando el tiempo con Javascript.
+
+## Configurar servidores
+
+### FTP
+
+Hay que dejar abierto un servidor FTP, y saber cual es el usuario, password, y servidor (ademas del puerto). Estos datos se colocan en el config de PHP.
+
+### NTP
+
+Similar a FTP.
+
+### SMTP
+
+Similar a los anteriores, pero se debe crear usuarios para poder recibir y enviar correos. (en construccion)
