@@ -11,9 +11,8 @@
 
 	class ntp_config{
 
-		public static $server = "ntp.pads.ufrj.br";
-		public static $socket = 37;
-		public static $timeout = 5;
+		public static $server = "1.au.pool.ntp.org";
+		public static $port = 123;
 		public static $timezone = "Chile/Continental";	// Esto es valido en PHP
 
 	}
