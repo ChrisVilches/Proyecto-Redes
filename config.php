@@ -11,7 +11,7 @@
 
 	class ntp_config{
 
-		public static $server = "1.au.pool.ntp.org";
+		public static $server = "1.south-america.pool.ntp.org";
 		public static $port = 123;
 		public static $timezone = "Chile/Continental";	// Esto es valido en PHP
 

@@ -8,6 +8,7 @@
 		exit;
 	}
 
+
 	// Conectarse al servidor
 	$ftp_connection = ftp_connect(ftp_config::$server, ftp_config::$port);
 	$ftp_login = ftp_login($ftp_connection, ftp_config::$username, ftp_config::$password);
@@ -24,6 +25,8 @@
 	$upload = ftp_put($ftp_connection, $filename, $source_file, FTP_BINARY);
 
 	ftp_close($ftp_connection); 
+
+
 	echo "1";
 
 ?>

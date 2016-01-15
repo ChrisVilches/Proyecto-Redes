@@ -21,6 +21,8 @@
 		<div class="modulo">
 			<h3>Modulo FTP</h3>
 
+			<p><small>Servidor: <?php echo ftp_config::$server; ?></small></p>
+
 			<!-- Formulario para subir archivos -->
 			<form enctype="multipart/form-data" id="ftp_form">
 			    <input name="file" type="file" id="ftp_file"/>
@@ -30,18 +32,25 @@
 			<p id="ftp_msg"></p>
 
 			<!-- Mostrar los archivos -->
-			<div id="archivos_ftp"></div>
+			<div id="archivos_ftp">Cargando...</div>
 
 		</div>
 
 		<div class="modulo">
 			<h3>Modulo NTP</h3>
+
+			<p><small>Servidor: <?php echo ntp_config::$server; ?></small></p>
+
 			<div id="ntp_result"></div>
 			<span id="ntp_msg">Cargando...</span>
 		</div>
 
 		<div class="modulo">
 			<h3>Modulo SMTP</h3>
+
+			<p><small>Servidor: <?php echo smtp_config::$server; ?></small></p>
+
+
 			<form id="smtp_form" method="post" action="ajax/smtp_ajax.php">
 				<table>
 					<tr><td>Desde:</td><td><input type="text" name="from"/></td></tr>
